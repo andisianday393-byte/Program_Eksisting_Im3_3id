@@ -52,22 +52,64 @@
         .card:hover { transform: scale(1.05); }
 
         .card h3 { color: #d6008b; }
+
+        /* Styling untuk background judul dan deskripsi */
+.card h3 {
+    color: #d6008b;
+    background-color: #fce4f2; /* Warna latar belakang lembut untuk judul */
+    padding: 8px;
+    border-radius: 8px;
+    margin: 10px 5px;
+}
+
+.card p {
+    font-size: 0.85rem;
+    color: #333;
+    background-color: #f0f0f0; /* Warna latar belakang abu-abu muda untuk deskripsi */
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px;
+    text-align: center;
+}
+
         
         .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    /* Tambahkan ini agar elemen menyesuaikan tinggi secara dinamis */
+    align-items: start; 
+}
 
-        .card {
-            background: white;
-            color: #333;
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            overflow: hidden;
-        }
+/* Pastikan card bisa menyesuaikan tinggi isinya */
+.card {
+    background: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    height: auto; /* Memastikan card tidak dipaksa kotak */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Update CSS untuk class tall */
+.card-tall .media-placeholder {
+    width: 100%;
+    height: 450px; /* Atur tinggi dasar, Anda bisa sesuaikan */
+    object-fit: contain; /* Menggunakan contain agar seluruh gambar terlihat tanpa gepeng */
+    background: #fff; /* Warna latar jika ada ruang kosong */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* Pastikan card tetap rapi */
+.card-tall {
+    display: flex;
+    flex-direction: column;
+}
 
         .media-placeholder {
             width: 100%;
@@ -122,7 +164,7 @@
 
         .fullscreen-overlay .close-btn {
             position: absolute;
-            top: 20px;
+            top: 10px;
             right: 20px;
             color: white;
             font-size: 40px;
@@ -233,6 +275,34 @@
     object-fit: contain;
     background: #fff;
 }
+      
+.footer {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-btn {
+    display: inline-flex; /* Menggunakan flex agar icon dan teks sejajar */
+    align-items: center;  /* Menjaga agar icon berada di tengah secara vertikal */
+    background-color: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+
+.admin-btn:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
 
     </style>
 </head>
@@ -266,9 +336,18 @@ Silakan klik link di bawah ini 👇</p1>
 
    <div class="grid-container" id="gridContainer"></div> 
 </div>
+<footer class="footer">
+    <p>Butuh bantuan lebih lanjut?</p>
+    <a href="https://wa.me/6285759695969" target="_blank" class="admin-btn">
+        <img src="whatsapp-icon.png" alt="WhatsApp" style="width: 24px; vertical-align: middle; margin-right: 8px;">
+        Hubungi Admin Program
+    </a>
+</footer>
+
 
 <script>
     const mediaItems = [
+      
         { 
             type: 'image', 
             src: 'flask-deal.jpg', 
@@ -276,6 +355,22 @@ Silakan klik link di bawah ini 👇</p1>
             desc: '🚨 INFO PROGRAM 🚨<br>Program Flash Deal Weekend Rebuy Data<br>📅 13 sd 14 Juni 2026<br>🔥 Transaksi Rebuy Data, Dapatkan Cashback!', 
             visible: true 
         },
+      { 
+        type: 'image', 
+        src: 'Jupiter-im3.jpg', 
+        title: 'PROGRAM PAKET JUPITER IM3', 
+        desc: 'Pilih Paketnya Raih Cuan Sebanyak-banyaknya.', 
+        visible: true,
+        tall: true // Tambahkan ini
+    },
+    { 
+        type: 'image', 
+        src: 'Jupiter-3id.png', 
+        title: 'PROGRAM PAKET JUPITER TRI', 
+        desc: 'Pilih Paketnya Raih Cuan Sebanyak-banyaknya.', 
+        visible: true,
+        tall: true // Tambahkan ini
+    },
         { 
             type: 'image', 
             src: 'Biometrik-pdf.jpg', 
@@ -315,23 +410,26 @@ Silakan klik link di bawah ini 👇</p1>
     mediaItems.forEach((item, index) => {
         if (item.visible) {
             const card = document.createElement('div');
-            card.className = 'card';
+            card.className = item.tall ? 'card card-tall' : 'card';
             
-            // Jika video, tambahkan atribut poster
             const mediaHtml = item.type === 'video'
-    ? `<img src="${item.poster}" class="video-thumb" onclick="openFullscreen(${index})">`
-    : `<img src="${item.src}" class="media-placeholder" onclick="openFullscreen(${index})">`;
+                ? `<img src="${item.poster}" class="video-thumb" onclick="openFullscreen(${index})">`
+                : `<img src="${item.src}" class="media-placeholder" onclick="openFullscreen(${index})">`;
             
             card.innerHTML = `
                 ${mediaHtml}
-                <h3>${item.title}</h3>
-                <p>${item.desc}</p>
-                ${item.link ? `<a href="${item.link}" target="_blank" class="btn-link">Lihat PDF</a>` : ''}
+                <div class="card-content">
+                    <h3>${item.title}</h3>
+                    <p>${item.desc}</p>
+                    ${item.link ? `<a href="${item.link}" target="_blank" class="btn-link">Lihat PDF</a>` : ''}
+                </div>
             `;
             container.appendChild(card);
         }
     });
 }
+
+
 
 
     // Jalankan render saat halaman selesai dimuat
@@ -353,27 +451,36 @@ Silakan klik link di bawah ini 👇</p1>
     }
 
     function updateSlideDisplay() {
-        const item = mediaItems[currentIndex];
-        const overlay = document.getElementById('fullscreenOverlay');
-        const videoOverlay = document.getElementById('videoFullscreenOverlay');
-        const indicator = document.getElementById('slideIndicator');
-        
-        indicator.textContent = `${currentIndex + 1} / ${mediaItems.length}`;
-        
-        if (item.type === 'image') {
-            const fullscreenImg = document.getElementById('fullscreenImage');
-            fullscreenImg.src = item.src;
-            overlay.style.display = 'flex';
-            videoOverlay.style.display = 'none';
-        } else {
-            const fullscreenVideo = document.getElementById('fullscreenVideo');
-            fullscreenVideo.querySelector('source').src = item.src;
-            fullscreenVideo.load();
-            videoOverlay.style.display = 'flex';
-            overlay.style.display = 'none';
-            fullscreenVideo.play();
-        }
+    const item = mediaItems[currentIndex];
+    const overlay = document.getElementById('fullscreenOverlay');
+    const videoOverlay = document.getElementById('videoFullscreenOverlay');
+    const indicator = document.getElementById('slideIndicator');
+    
+    // --- TAMBAHAN: Hentikan video jika ada yang sedang diputar ---
+    const fullscreenVideo = document.getElementById('fullscreenVideo');
+    if (!fullscreenVideo.paused) {
+        fullscreenVideo.pause();
+        fullscreenVideo.currentTime = 0; // Opsional: reset ke awal
     }
+    // -----------------------------------------------------------
+    
+    indicator.textContent = `${currentIndex + 1} / ${mediaItems.length}`;
+    
+    if (item.type === 'image') {
+        const fullscreenImg = document.getElementById('fullscreenImage');
+        fullscreenImg.src = item.src;
+        overlay.style.display = 'flex';
+        videoOverlay.style.display = 'none';
+    } else {
+        // Jika item berikutnya adalah video
+        fullscreenVideo.querySelector('source').src = item.src;
+        fullscreenVideo.load();
+        videoOverlay.style.display = 'flex';
+        overlay.style.display = 'none';
+        // fullscreenVideo.play(); // Hapus atau biarkan jika ingin auto-play
+    }
+}
+
 
     function closeFullscreen() {
         const overlay = document.getElementById('fullscreenOverlay');
