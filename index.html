@@ -6,14 +6,10 @@
     <meta property="og:image" content="https://raw.githubusercontent.com/andisianday393-byte/Info_dan-Materi_Biometrik/refs/heads/main/Rebuy-data.jpg" />
     <meta property="og:url" content="https://andisianday393-byte.github.io/Info_dan-Materi_Biometrik/" />
     <meta property="og:type" content="website" />
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info & Materi Biometrik IM3</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info & Materi Biometrik IM3</title>
-    <style>
+       <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #2b0050, #000000);
@@ -304,6 +300,31 @@
     transform: scale(1.05);
 }
 
+
+/* Hilangkan blue highlight/tap highlight saat klik gambar */
+#fullscreenOverlay img,
+.media-placeholder,
+.video-thumb,
+#fullscreenImage {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Hilangkan outline azul saat focus */
+#fullscreenImage:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Hilangkan highlight pada overlay keseluruhan */
+#fullscreenOverlay {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+}
+         
     </style>
 </head>
 <body>
