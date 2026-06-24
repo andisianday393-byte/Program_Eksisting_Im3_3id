@@ -301,6 +301,54 @@ h1{
  text-align:right;
 }
 
+#loadingScreen{
+ position:fixed;
+ inset:0;
+ background:
+ linear-gradient(
+ 135deg,
+ #2b0050 0%,
+ #5c008a 40%,
+ #ff0055 100%);
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ z-index:99999;
+ transition:opacity .4s ease;
+}
+
+.loader{
+ width:60px;
+ height:60px;
+ border:5px solid rgba(255,255,255,.25);
+ border-top:5px solid #ffcc00;
+ border-radius:50%;
+ animation:spin 1s linear infinite;
+}
+
+.loading-text{
+ margin-top:15px;
+ color:white;
+ font-weight:600;
+ font-size:16px;
+ letter-spacing:.5px;
+}
+
+@keyframes spin{
+ from{
+  transform:rotate(0deg);
+ }
+ to{
+  transform:rotate(360deg);
+ }
+}
+
+#loadingScreen.hide{
+ opacity:0;
+ pointer-events:none;
+}
+
 *{
    -webkit-tap-highlight-color: transparent;
    box-sizing:border-box;
@@ -318,6 +366,12 @@ textarea{
 </head>
 
 <body>
+  <div id="loadingScreen">
+  <div class="loader"></div>
+  <div class="loading-text">
+    Memuat Materi...
+  </div>
+</div>
 <div id="menuBtn">⋮</div>
 
 <div id="menuPopup">
@@ -533,6 +587,24 @@ if("serviceWorker" in navigator){
  .register("./sw.js");
 
 }
+</script>
+  <script>
+window.addEventListener("load", () => {
+
+  const loading =
+  document.getElementById("loadingScreen");
+
+  setTimeout(() => {
+
+    loading.classList.add("hide");
+
+    setTimeout(() => {
+      loading.remove();
+    }, 400);
+
+  }, 300);
+
+});
 </script>
 </body>
 </html>
