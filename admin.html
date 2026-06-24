@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Dashboard Program</title>
+
+<style>
+
+body{
+ font-family:Arial,sans-serif;
+ background:#f5f5f5;
+ margin:0;
+ padding:20px;
+}
+
+.card{
+ background:white;
+ border-radius:12px;
+ padding:15px;
+ margin-bottom:15px;
+ box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+input:not([type="checkbox"]),
+textarea,
+select{
+ width:100%;
+ padding:10px;
+ border:1px solid #ddd;
+ border-radius:8px;
+ margin-bottom:10px;
+ box-sizing:border-box;
+}
+  
+button{
+ border:none;
+ padding:10px 15px;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+.save{
+ background:#ee4d2d;
+ color:white;
+}
+
+.edit{
+ background:#2196f3;
+ color:white;
+}
+
+.delete{
+ background:#f44336;
+ color:white;
+}
+
+.toggle{
+ background:#555;
+ color:white;
+}
+
+.preview{
+ width:100%;
+ max-height:250px;
+ object-fit:contain;
+ border-radius:10px;
+ margin-top:10px;
+ background:#fff;
+}
+
+.media-item{
+ background:white;
+ border-radius:12px;
+ padding:15px;
+ margin-top:15px;
+}
+
+.media-item img{
+ width:120px;
+ height:120px;
+ object-fit:cover;
+ border-radius:10px;
+}
+
+.row{
+ display:flex;
+ gap:15px;
+ align-items:center;
+}
+
+#previewContainer img,
+#previewContainer video{
+ width:100%;
+ max-height:250px;
+ object-fit:contain;
+ border-radius:10px;
+ margin-top:10px;
+ background:#fff;
+}
+
+.logout-wrapper{
+ margin-top:25px;
+ padding-top:20px;
+ border-top:1px solid rgba(0,0,0,.15);
+}
+
+#logoutBtn{
+ display:block;
+ margin:0 auto;
+ background:#f44336;
+ color:white;
+ padding:10px 20px;
+ border:none;
+ border-radius:8px;
+ cursor:pointer;
+}
+
+.action-buttons{
+ display:flex;
+ gap:10px;
+ margin-top:10px;
+ flex-wrap:wrap;
+}
+
+.desc-preview{
+ max-height:70px;
+ overflow:hidden;
+ transition:max-height .35s ease;
+ text-align:left;
+ line-height:1.7;
+ color:#444;
+ cursor:pointer;
+}
+
+.media-item.expanded .desc-preview{
+ max-height:1000px;
+}
+
+.desc-preview h4{
+ margin:12px 0 6px;
+ color:#d6008b;
+ font-size:1rem;
+}
+
+.desc-preview p{
+ margin:0 0 10px;
+ white-space:pre-wrap;
+}
+
+.desc-preview ul{
+ margin:0 0 10px 20px;
+ padding:0;
+}
+
+.desc-preview li{
+ margin-bottom:6px;
+}
+  
+</style>
+</head>
+<body>
+
+<h2>Dashboard Program Biometrik</h2>
+<div class="card">
+
+<input
+id="title"
+placeholder="Judul Program">
+<input
+id="order"
+type="number"
+placeholder="Urutan Tampil (1 = paling atas)"
+value="999">
+<textarea
+id="desc"
+placeholder="Deskripsi"></textarea>
+
+<div id="previewContainer"></div>
+
+<select id="type">
+
+<option value="image">
+Gambar
+</option>
+
+<option value="video">
+Video
+</option>
+
+</select>
+  
+<label class="checkbox-label">
+  <input
+    type="checkbox"
+    id="visible"
+    checked>
+  Tampilkan Program
+</label>
+  
+<br><br>
+<input
+type="file"
+id="fileInput"
+accept="image/*,video/*">
+
+<button
+type="button"
+id="uploadBtn">
+Upload ke Cloudinary
+</button>
+
+<div id="uploadStatus"></div>
+  <br>
+
+<button
+id="saveBtn"
+class="save">
+
+Tambah Program
+
+</button>
+
+<br>
+  <div class="logout-wrapper">
+  <button id="logoutBtn">
+    Logout
+  </button>
+</div>
+
+</div>
+
+<div id="list"></div>
+
+<script type="module"
+src="./admin.js"></script>
+
+</body>
+</html>

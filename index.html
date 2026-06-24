@@ -1,686 +1,538 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-     <meta property="og:title" content="PROGRAM HIT REBUY DATA" />
-    <meta property="og:description" content="Buka Tautan untuk melihat info Program, Paket dan Biometrik" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/andisianday393-byte/Info_dan-Materi_Biometrik/refs/heads/main/Rebuy-data.jpg" />
-    <meta property="og:url" content="https://andisianday393-byte.github.io/Info_dan-Materi_Biometrik/" />
-    <meta property="og:type" content="website" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info & Materi Biometrik IM3</title>
-       <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2b0050, #000000);
-            color: white;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d6008b">
+<title>Info & Materi Biometrik IM3</title>
 
-        .container {
-            max-width: 1000px;
-            text-align: center;
-        }
+<link rel="stylesheet" href="style.css">
 
-        h1 { font-size: 1.5rem; margin-bottom: 10px; margin-top: 5px;}
+<style>
 
-        h3 { font-size: 0.9rem; margin-bottom: 10px; }
-
-        p { font-size: 0.7rem; margin-bottom: 10px; }
-
-        p1 { font-size: 0.9rem; margin-bottom: 10px; }
-      
-        .link-box {
-            background: white;
-            color: #d6008b;
-            padding: 20px;
-            border-radius: 50px;
-            font-size: 1.0rem;
-            font-weight: bold;
-            margin: 10px 0 -10px;
-            display: inline-block;
-        }
-
-        .card:hover { transform: scale(1.05); }
-
-        .card h3 { color: #d6008b; }
-
-        /* Styling untuk background judul dan deskripsi */
-.card h3 {
-    color: #d6008b;
-    background-color: #fce4f2; /* Warna latar belakang lembut untuk judul */
-    padding: 8px;
-    border-radius: 8px;
-    margin: 10px 5px;
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:
+    linear-gradient(
+    135deg,
+    #2b0050 0%,
+    #5c008a 40%,
+    #ff0055 100%);
 }
 
-.card p {
-    font-size: 0.85rem;
-    color: #333;
-    background-color: #f0f0f0; /* Warna latar belakang abu-abu muda untuk deskripsi */
-    padding: 10px;
-    border-radius: 8px;
-    margin: 5px;
-    text-align: center;
+h1{
+    font-size:1.6rem;
+    text-align:center;
+    text-shadow:
+    0 0 10px rgba(255,204,0,.6),
+    0 0 20px rgba(255,204,0,.4);
+}
+  
+.container{
+    max-width:1000px;
+    text-align:center;
 }
 
-        
-        .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-    /* Tambahkan ini agar elemen menyesuaikan tinggi secara dinamis */
-    align-items: start; 
+.link-box{
+    background:white;
+    color:#d6008b;
+    padding:20px;
+    border-radius:50px;
+    font-weight:bold;
+    display:inline-block;
 }
 
-/* Pastikan card bisa menyesuaikan tinggi isinya */
-.card {
-    background: white;
-    color: #333;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    height: auto; /* Memastikan card tidak dipaksa kotak */
-    display: flex;
-    flex-direction: column;
+.grid-container{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:30px;
 }
 
-/* Update CSS untuk class tall */
-.card-tall .media-placeholder {
-    width: 100%;
-    height: 450px; /* Atur tinggi dasar, Anda bisa sesuaikan */
-    object-fit: contain; /* Menggunakan contain agar seluruh gambar terlihat tanpa gepeng */
-    background: #fff; /* Warna latar jika ada ruang kosong */
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s;
+.card p{
+ margin:0;
+ font-size:.95rem;
+ line-height:1.5;
+ color:#555;
 }
 
-/* Pastikan card tetap rapi */
-.card-tall {
-    display: flex;
-    flex-direction: column;
+.card:hover{
+ transform:translateY(-8px);
+ box-shadow:0 15px 35px rgba(255,0,85,.35);
+}
+  
+.media-placeholder{
+ width:100%;
+ height:auto;
+ display:block;
+}
+  
+.video-thumb{
+ width:100%;
+ height:auto;
+ display:block;
+}
+  
+.btn-link{
+    display:block;
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background:#d6008b;
+    color:white;
+    text-decoration:none;
 }
 
-        .media-placeholder {
-            width: 100%;
-            height: 180px;
-            border: none;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .media-placeholder:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .video-portrait {
-            width: 100%;
-            height: 300px;
-            object-fit: contain;
-            background-color: #000;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .video-portrait:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        /* Fullscreen overlay styling untuk gambar */
-        .fullscreen-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .fullscreen-overlay img {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .fullscreen-overlay .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            padding: 10px;
-            font-weight: bold;
-            z-index: 10000;
-        }
-
-        .fullscreen-overlay .close-btn:hover {
-            color: #d6008b;
-        }
-
-        /* Tombol navigasi slide */
-        .slide-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            padding: 10px 10px;
-            z-index: 10000;
-            user-select: none;
-            transition: background 0.3s, color 0.3s;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 999px;
-        }
-
-        .slide-nav:hover {
-            background: rgba(214, 0, 139, 0.7);
-            color: white;
-        }
-
-        .slide-nav.prev {
-            left: 20px;
-        }
-
-        .slide-nav.next {
-            right: 20px;
-        }
-
-        /* Indikator nomor slide */
-        .slide-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 18px;
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px 20px;
-            border-radius: 20px;
-        }
-
-        /* Fullscreen overlay untuk video */
-        .video-fullscreen-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9998;
-        }
-
-        .video-fullscreen-overlay video {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        /* Tombol close untuk video - POSISI FIXED di kanan atas */
-        .video-fullscreen-overlay .close-btn {
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            padding: 10px;
-            font-weight: bold;
-            z-index: 10000;
-        }
-
-        .video-fullscreen-overlay .close-btn:hover {
-            color: #d6008b;
-        }
-      .btn-link {
-    display: block;
-    background: #d6008b;
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: center;
-}
-      .video-thumb {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    background: #fff;
-}
-      
-.footer {
-    margin-top: 20px;
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.footer{
+    margin-top:30px;
+    text-align:center;
 }
 
-.admin-btn {
-    display: inline-flex; /* Menggunakan flex agar icon dan teks sejajar */
-    align-items: center;  /* Menjaga agar icon berada di tengah secara vertikal */
-    background-color: #25d366;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background 0.3s, transform 0.2s;
+.admin-btn{
+    display:inline-block;
+    background:#25d366;
+    color:white;
+    padding:12px 20px;
+    border-radius:50px;
+    text-decoration:none;
 }
 
-
-.admin-btn:hover {
-    background-color: #128c7e;
-    transform: scale(1.05);
+.fullscreen-overlay,
+.video-fullscreen-overlay{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
 }
 
-
-/* Hilangkan blue highlight/tap highlight saat klik gambar */
-#fullscreenOverlay img,
-.media-placeholder,
-.video-thumb,
-#fullscreenImage {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    touch-action: pan-y;
-    user-select: none;
-    -webkit-user-select: none;
+.fullscreen-overlay img,
+.video-fullscreen-overlay video{
+    max-width:95%;
+    max-height:95%;
 }
 
-/* Hilangkan outline azul saat focus */
-#fullscreenImage:focus {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
 }
 
-/* Hilangkan highlight pada overlay keseluruhan */
-#fullscreenOverlay {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: pan-y;
+#menuBtn{
+ position:fixed;
+ top: 5px;
+ right: 5px;
+ font-size:28px;
+ color:white;
+ cursor:pointer;
+ z-index:10000;
+ padding:5px 10px;
+ background:transparent;
 }
-         
-    </style>
+
+#menuBtn.hide-on-scroll{
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+  
+#menuPopup{
+ position:fixed;
+ top:55px;
+ right:15px;
+ background:white;
+ color:#333;
+ border-radius:10px;
+ overflow:hidden;
+ display:none;
+ z-index:10000;
+ min-width:120px;
+ box-shadow:0 4px 15px rgba(0,0,0,.3);
+}
+
+#menuPopup div{
+ padding:12px;
+ cursor:pointer;
+}
+
+#menuPopup div:hover{
+ background:#f5f5f5;
+}
+
+.card{
+ background:white;
+ color:#333;
+ border-radius:20px;
+ overflow:hidden;
+ transition:.3s;
+ box-shadow:0 5px 20px rgba(0,0,0,.25);
+ padding:0;
+ cursor:pointer;
+ display:flex;
+ flex-direction:column;
+}
+
+.card-body{
+ padding:16px;
+ text-align:left;
+ display:flex;
+ flex-direction:column;
+ gap:8px;
+ min-width:0;
+}
+  
+.card h3{
+ color:#d6008b;
+ font-size:1.05rem;
+ line-height:1.4;
+ margin:0;
+
+ white-space:normal;
+ overflow:visible;
+ text-overflow:unset;
+
+ word-break:break-word;
+ overflow-wrap:break-word;
+}
+  
+.card-desc{
+ max-height:70px;
+ overflow:hidden;
+ transition:max-height .3s ease;
+}
+
+.card.expanded .card-desc{
+ max-height:300px; /* tinggi area deskripsi */
+ overflow-y:auto;
+ overflow-x:hidden;
+ padding-right:6px;
+}
+
+.card.expanded .card-desc::-webkit-scrollbar{
+ width:6px;
+}
+
+.card.expanded .card-desc::-webkit-scrollbar-thumb{
+ background:#d6008b;
+ border-radius:20px;
+}
+
+.card.expanded .card-desc::-webkit-scrollbar-track{
+ background:#f0f0f0;
+}
+  
+.desc-block{
+ text-align:left;
+ line-height:1.7;
+ color:#444;
+}
+
+.desc-block h4{
+ margin:16px 0 8px;
+ color:#d6008b;
+ font-size:1rem;
+ font-weight:700;
+}
+
+.desc-block p{
+ margin:0 0 12px;
+ white-space:normal;
+ overflow-wrap:break-word;
+ word-break:break-word;
+}
+
+.desc-block ul{
+ margin:0 0 12px 20px;
+ padding:0;
+}
+
+.desc-block li{
+ margin-bottom:8px;
+}
+
+.media-item h3{
+    margin:0 0 8px;
+    font-size:16px;
+    font-weight:600;
+
+    white-space:normal;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    line-height:1.4;
+}
+
+.media-item .row{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.media-item .row > div:last-child{
+    flex:1;
+    min-width:0;
+}
+
+.info-click{
+ margin:15px 0 20px;
+ padding:10px 15px;
+ background:rgba(255,255,255,.15);
+ border:1px solid rgba(255,255,255,.25);
+ border-radius:12px;
+ color:#fff;
+ font-size:.9rem;
+ text-align:center;
+ backdrop-filter:blur(6px);
+}
+
+  .tap-hint{
+ color:#d6008b;
+ font-size:.8rem;
+ font-weight:600;
+ display:block;
+ margin-top:-2px;
+ text-align:right;
+}
+
+*{
+   -webkit-tap-highlight-color: transparent;
+   box-sizing:border-box;
+}
+
+button,
+a,
+input,
+textarea{
+   outline:none;
+}
+
+  
+</style>
 </head>
+
 <body>
+<div id="menuBtn">⋮</div>
 
-<!-- Fullscreen overlay untuk gambar dengan navigasi slide -->
-<div class="fullscreen-overlay" id="fullscreenOverlay">
-    <span class="close-btn" onclick="closeFullscreen()">&times;</span>
-    <div class="slide-nav prev" onclick="prevSlide()">&#10094;</div>
-    <div class="slide-nav next" onclick="nextSlide()">&#10095;</div>
-    <div class="slide-indicator" id="slideIndicator">1 / 4</div>
-    <img id="fullscreenImage" src="" alt="Fullscreen Image">
+<div id="menuPopup">
+  <div onclick="openAdmin()">
+    Admin
+  </div>
+
+  <div id="installBtn">
+    Install Aplikasi
+  </div>
+</div>  
+<div class="fullscreen-overlay"
+id="fullscreenOverlay">
+
+<span class="close-btn"
+onclick="closeFullscreen()">
+×
+</span>
+
+<img
+id="fullscreenImage"
+src="">
 </div>
 
-<!-- Fullscreen overlay untuk video (fallback) -->
-<div class="video-fullscreen-overlay" id="videoFullscreenOverlay" onclick="if(e.target===this)nextSlide()">
-    <span class="close-btn" onclick="closeVideoFullscreen()">&times;</span>
-    <video id="fullscreenVideo" controls>
-        <source src="" type="video/mp4">
-    </video>
+<div class="video-fullscreen-overlay"
+id="videoFullscreenOverlay">
+
+<span class="close-btn"
+onclick="closeVideoFullscreen()">
+×
+</span>
+
+<video
+id="fullscreenVideo"
+controls>
+<source src="">
+</video>
+
 </div>
 
-<div class="container">
-    <h1>SEMUA INFO PROGRAM & MATERI <br><span style="color: #ffcc00;">BIOMETRIK</span></h1>
-    <p1>ADA DI SATU LINK! <br>
-Silakan klik link di bawah ini 👇</p1>
-    
-    <a href="https://bit.ly/registrasibiometrik" target="_blank" style="text-decoration: none;">
-        <div class="link-box">bit.ly/registrasibiometrik</div>
-    </a>
+<h1 style="color: white; margin-top: 30px">
+SEMUA INFO PROGRAM & MATERI
+<br>
+<span style="color:#ffcc00">
+BIOMETRIK ADA DISINI!!
+</span>
 
-   <div class="grid-container" id="gridContainer"></div> 
+</h1>
+
+<div class="info-click">
+ 👆 Ketuk kartu untuk membuka dan melihat informasi lengkap
 </div>
+
+<div
+class="grid-container"
+id="gridContainer">
+</div>
+
 <footer class="footer">
-    <p>Butuh bantuan lebih lanjut?</p>
-    <a href="https://wa.me/6285759695969" target="_blank" class="admin-btn">
-        <img src="whatsapp-icon.png" alt="WhatsApp" style="width: 24px; vertical-align: middle; margin-right: 8px;">
-        Hubungi Admin Program
-    </a>
+
+<p>
+Butuh bantuan lebih lanjut?
+</p>
+
+<a
+href="https://wa.me/6285759695969"
+target="_blank"
+class="admin-btn">
+
+Hubungi Admin Program
+
+</a>
+
 </footer>
 
-
 <script>
-    const mediaItems = [
-      
-        { 
-            type: 'image', 
-            src: 'Rebuy-data.jpg', 
-            title: 'PROGRAM HIT REBUY DATA', 
-            desc: '🔥 Transaksi Rebuy Data Cuannya Makin Mantap !! 🔥', 
-            visible: true 
-        },
-      { 
-        type: 'image', 
-        src: 'Jupiter-im3.jpg', 
-        title: 'PROGRAM PAKET JUPITER IM3', 
-        desc: 'Pilih Paketnya Raih Cuan Sebanyak-banyaknya.', 
-        visible: true,
-        tall: true // Tambahkan ini
-    },
-    { 
-        type: 'image', 
-        src: 'Jupiter-3id.png', 
-        title: 'PROGRAM PAKET JUPITER TRI', 
-        desc: 'Pilih Paketnya Raih Cuan Sebanyak-banyaknya.', 
-        visible: true,
-        tall: true // Tambahkan ini
-    },
-        { 
-            type: 'image', 
-            src: 'Biometrik-pdf.jpg', 
-            title: 'REGISTRASI PRABAYAR', 
-            desc: 'Panduan lengkap Registrasi Biometrik dan Spesifikasi Handphone.', 
-            link: 'Daftar-spesifikasi-HP-untuk-registrasi-biometrik.pdf',
-            visible: true 
-        },
-        { 
-            type: 'video', 
-    src: 'Video-Panduan-Registrasi-Biometrik.mp4', 
-    poster: 'thumbnail-video.jpg', // Tambahkan ini
-    title: 'VIDEO PANDUAN', 
-    desc: 'Video Panduan lengkap cara melakukan Registrasi kartu perdana.', 
-    visible: true 
-        },
-        { 
-            type: 'image', 
-            src: '3ID-Biometric-Program.jpg', 
-            title: 'CASHBACK TRI', 
-            desc: 'Mekanisme Program Dapatkan Cashback Hingga 1,2jt.', 
-            visible: true 
-        },
-        { 
-            type: 'image', 
-            src: 'IM3-Biometric-Program.jpg', 
-            title: 'CASHBACK IM3', 
-            desc: 'Mekanisme Program Dapatkan Cashback Hingga 1,2jt.', 
-            visible: true 
-        }
-    ];
 
-    function renderCards() {
-    const container = document.getElementById('gridContainer');
-    container.innerHTML = ''; 
+let currentIndex=0;
 
-    mediaItems.forEach((item, index) => {
-        if (item.visible) {
-            const card = document.createElement('div');
-            card.className = item.tall ? 'card card-tall' : 'card';
-            
-            const mediaHtml = item.type === 'video'
-                ? `<img src="${item.poster}" class="video-thumb" onclick="openFullscreen(${index})">`
-                : `<img src="${item.src}" class="media-placeholder" onclick="openFullscreen(${index})">`;
-            
-            card.innerHTML = `
-                ${mediaHtml}
-                <div class="card-content">
-                    <h3>${item.title}</h3>
-                    <p>${item.desc}</p>
-                    ${item.link ? `<a href="${item.link}" target="_blank" class="btn-link">Lihat PDF</a>` : ''}
-                </div>
-            `;
-            container.appendChild(card);
-        }
-    });
+function openFullscreen(index){
+ currentIndex = index;
+
+ document.getElementById("menuBtn").style.display = "none";
+
+ const item = window.mediaItems[index];
+
+ if(item.type === "video"){
+   const overlay = document.getElementById("videoFullscreenOverlay");
+   const video = document.getElementById("fullscreenVideo");
+
+   video.querySelector("source").src = item.src;
+   video.load();
+
+   overlay.style.display = "flex";
+   return;
+ }
+
+ document.getElementById("fullscreenImage").src = item.src;
+ document.getElementById("fullscreenOverlay").style.display = "flex";
+}
+  
+function closeFullscreen(){
+ document.getElementById("fullscreenOverlay").style.display = "none";
+ document.getElementById("menuBtn").style.display = "block";
 }
 
+function closeVideoFullscreen(){
+ const video = document.getElementById("fullscreenVideo");
+ video.pause();
 
-
-
-    // Jalankan render saat halaman selesai dimuat
-    document.addEventListener('DOMContentLoaded', renderCards);
-
-    let currentIndex = 0;
-    let isVideoFullscreen = false;
-
-    // === FUNGSI FULLSCREEN DENGAN SLIDE ===
-    function openFullscreen(index) {
-        currentIndex = index;
-        isVideoFullscreen = false;
-        
-        const overlay = document.getElementById('fullscreenOverlay');
-        const indicator = document.getElementById('slideIndicator');
-        
-        overlay.style.display = 'flex';
-        updateSlideDisplay();
-    }
-
-    function updateSlideDisplay() {
-    const item = mediaItems[currentIndex];
-    const overlay = document.getElementById('fullscreenOverlay');
-    const videoOverlay = document.getElementById('videoFullscreenOverlay');
-    const indicator = document.getElementById('slideIndicator');
-    
-    // --- TAMBAHAN: Hentikan video jika ada yang sedang diputar ---
-    const fullscreenVideo = document.getElementById('fullscreenVideo');
-    if (!fullscreenVideo.paused) {
-        fullscreenVideo.pause();
-        fullscreenVideo.currentTime = 0; // Opsional: reset ke awal
-    }
-    // -----------------------------------------------------------
-    
-    indicator.textContent = `${currentIndex + 1} / ${mediaItems.length}`;
-    
-    if (item.type === 'image') {
-        const fullscreenImg = document.getElementById('fullscreenImage');
-        fullscreenImg.src = item.src;
-        overlay.style.display = 'flex';
-        videoOverlay.style.display = 'none';
-    } else {
-        // Jika item berikutnya adalah video
-        fullscreenVideo.querySelector('source').src = item.src;
-        fullscreenVideo.load();
-        videoOverlay.style.display = 'flex';
-        overlay.style.display = 'none';
-        // fullscreenVideo.play(); // Hapus atau biarkan jika ingin auto-play
-    }
+ document.getElementById("videoFullscreenOverlay").style.display = "none";
+ document.getElementById("menuBtn").style.display = "block";
 }
-
-
-    function closeFullscreen() {
-        const overlay = document.getElementById('fullscreenOverlay');
-        const fullscreenImg = document.getElementById('fullscreenImage');
-        
-        fullscreenImg.src = '';
-        overlay.style.display = 'none';
-        isVideoFullscreen = false;
-    }
-
-    // === NAVIGASI SLIDE ===
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % mediaItems.length;
-        updateSlideDisplay();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length;
-        updateSlideDisplay();
-    }
-
-    // === KLIK SIDE UNTUK NAVIGASI ===
-    document.getElementById('fullscreenOverlay').addEventListener('click', function(e) {
-        if (e.target === this || e.target.tagName === 'IMG') {
-            nextSlide();
-        }
-    });
-
-    document.getElementById('videoFullscreenOverlay').addEventListener('click', function(e) {
-        if (e.target === this) {
-            nextSlide();
-        }
-    });
-
-    // === SWIPE UNTUK MOBILE ===
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    document.getElementById('fullscreenOverlay').addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    document.getElementById('fullscreenOverlay').addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    document.getElementById('videoFullscreenOverlay').addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    document.getElementById('videoFullscreenOverlay').addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        if (touchEndX < touchStartX - swipeThreshold) {
-            nextSlide();
-        }
-        if (touchEndX > touchStartX + swipeThreshold) {
-            prevSlide();
-        }
-    }
-
-    // === CLOSE FULLSCREEN DENGAN TOMBOL ESC ===
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeFullscreen();
-            closeVideoFullscreen();
-            
-            const video = document.getElementById('videoPanduan');
-            if (document.fullscreenElement === video) {
-                document.exitFullscreen();
-            }
-        }
-        
-        if (e.key === 'ArrowRight' && !isVideoFullscreen) {
-            nextSlide();
-        }
-        if (e.key === 'ArrowLeft' && !isVideoFullscreen) {
-            prevSlide();
-        }
-    });
-
-    // === FUNGSI FULLSCREEN VIDEO NATIVE - DIPERBAIKI ===
-    function openVideoFullscreen() {
-        const video = document.getElementById('videoPanduan');
-        const overlay = document.getElementById('videoFullscreenOverlay');
-        const fullscreenVideo = document.getElementById('fullscreenVideo');
-        
-        // PLAY video dulu sebelum request fullscreen (penting untuk browser mobile)
-        if (video.paused) {
-            video.play().then(() => {
-                // Setelah play, request fullscreen
-                tryFullscreen(video);
-            }).catch(err => {
-                console.log('Play failed, using fallback:', err);
-                useVideoFallback(video, overlay, fullscreenVideo);
-            });
-        } else {
-            tryFullscreen(video);
-        }
-    }
-
-    function tryFullscreen(video) {
-        // Coba semua method fullscreen yang tersedia
-        if (video.requestFullscreen) {
-            video.requestFullscreen().catch(err => {
-                console.log('requestFullscreen failed:', err);
-                const overlay = document.getElementById('videoFullscreenOverlay');
-                const fullscreenVideo = document.getElementById('fullscreenVideo');
-                useVideoFallback(video, overlay, fullscreenVideo);
-            });
-        } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
-        } else if (video.mozRequestFullScreen) {
-            video.mozRequestFullScreen();
-        } else if (video.msRequestFullscreen) {
-            video.msRequestFullscreen();
-        } else {
-            // Jika tidak ada method fullscreen, gunakan fallback
-            const overlay = document.getElementById('videoFullscreenOverlay');
-            const fullscreenVideo = document.getElementById('fullscreenVideo');
-            useVideoFallback(video, overlay, fullscreenVideo);
-        }
-    }
-
-    function useVideoFallback(video, overlay, fullscreenVideo) {
-        const source = video.querySelector('source');
-        fullscreenVideo.querySelector('source').src = source.src;
-        fullscreenVideo.load();
-        
-        if (video.paused) {
-            fullscreenVideo.pause();
-        } else {
-            fullscreenVideo.play();
-        }
-        
-        overlay.style.display = 'flex';
-    }
-
-    function closeVideoFullscreen() {
-        const overlay = document.getElementById('videoFullscreenOverlay');
-        const fullscreenVideo = document.getElementById('fullscreenVideo');
-        
-        fullscreenVideo.pause();
-        overlay.style.display = 'none';
-    }
-
-    // === SYNC PLAYBACK ===
-    const video = document.getElementById('videoPanduan');
-    const fullscreenVideo = document.getElementById('fullscreenVideo');
-    
-    video.addEventListener('play', () => {
-        if (!fullscreenVideo.paused && document.getElementById('videoFullscreenOverlay').style.display === 'flex') {
-            fullscreenVideo.play();
-        }
-    });
-    
-    video.addEventListener('pause', () => {
-        if (!fullscreenVideo.paused && document.getElementById('videoFullscreenOverlay').style.display === 'flex') {
-            fullscreenVideo.pause();
-        }
-    });
-    
-    fullscreenVideo.addEventListener('play', () => {
-        if (video.paused) {
-            video.play();
-        }
-    });
-    
-    fullscreenVideo.addEventListener('pause', () => {
-        if (!video.paused) {
-            video.pause();
-        }
-    });
 </script>
 
+<script type="module"
+src="./public.js">
+</script>
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const menuPopup = document.getElementById("menuPopup");
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+function updateMenuBtn() {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY <= 10) {
+    menuBtn.classList.remove("hide-on-scroll");
+  } else if (currentScrollY > lastScrollY) {
+    menuBtn.classList.add("hide-on-scroll");
+    menuPopup.style.display = "none";
+  } else {
+    menuBtn.classList.remove("hide-on-scroll");
+  }
+
+  lastScrollY = currentScrollY;
+  ticking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateMenuBtn);
+    ticking = true;
+  }
+}, { passive: true });
+
+menuBtn.onclick = () => {
+  menuPopup.style.display =
+    menuPopup.style.display === "block" ? "none" : "block";
+};
+
+function openAdmin() {
+  location.href = "login.html";
+}
+
+document.addEventListener("click", e => {
+  if (!menuBtn.contains(e.target) && !menuPopup.contains(e.target)) {
+    menuPopup.style.display = "none";
+  }
+});
+</script>
+  <script>
+let deferredPrompt = null;
+
+window.addEventListener(
+ "beforeinstallprompt",
+ (e) => {
+
+  e.preventDefault();
+
+  deferredPrompt = e;
+
+  const btn =
+  document.getElementById("installBtn");
+
+  if(btn){
+   btn.style.display = "block";
+  }
+
+ });
+
+document
+.getElementById("installBtn")
+?.addEventListener("click", async () => {
+
+ if(!deferredPrompt){
+  alert(
+   "Install belum tersedia"
+  );
+  return;
+ }
+
+ deferredPrompt.prompt();
+
+ const result =
+ await deferredPrompt.userChoice;
+
+ console.log(result.outcome);
+
+ deferredPrompt = null;
+
+ document
+ .getElementById("installBtn")
+ .style.display = "none";
+
+});
+</script>
+  <script>
+if("serviceWorker" in navigator){
+
+ navigator.serviceWorker
+ .register("./sw.js");
+
+}
+</script>
 </body>
 </html>
