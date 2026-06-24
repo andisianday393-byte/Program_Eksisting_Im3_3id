@@ -137,7 +137,29 @@ function renderCards(){
 container.appendChild(card);
 
 }); // tutup forEach
+const images =
+container.querySelectorAll("img");
 
+Promise.all(
+ [...images].map(img => {
+
+  if(img.complete){
+   return Promise.resolve();
+  }
+
+  return new Promise(resolve => {
+   img.onload = resolve;
+   img.onerror = resolve;
+  });
+
+ })
+).then(() => {
+
+ window.dispatchEvent(
+  new Event("contentReady")
+ );
+
+});
 } // tutup renderCards
 
 function escapeHtml(str = "") {
@@ -221,3 +243,24 @@ function smartFormatDesc(text = "") {
   return html;
 }
 loadMedia();
+
+window.addEventListener(
+ "contentReady",
+ () => {
+
+   const loading =
+   document.getElementById(
+    "loadingScreen"
+   );
+
+   setTimeout(() => {
+
+     loading.classList.add("hide");
+
+     setTimeout(() => {
+       loading.remove();
+     }, 400);
+
+   }, 500);
+
+ });
